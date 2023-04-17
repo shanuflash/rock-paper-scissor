@@ -7,14 +7,14 @@
   flex-direction: column;
 }
 
-.title-container {
+.nav-container {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.title {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,4 +81,27 @@
 }
 .scissors {
   border: 1rem solid var(--scissors);
+}
+
+.Result {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  gap: 1rem;
+}
+
+.win button {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: whitesmoke;
+  font-size: 1.5rem;
+  cursor: pointer;
 }

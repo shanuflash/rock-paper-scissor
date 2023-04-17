@@ -1,44 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import rock from "../assets/icon-rock.svg";
 import paper from "../assets/icon-paper.svg";
 import scissors from "../assets/icon-scissors.svg";
-import bgtriangle from "../assets/bg-triangle.svg";
-function Board({ isComputer, Score, setScore, Winner, setWinner }) {
-  const [Pick, setPick] = useState(null);
-  const [Computer, setComputer] = useState(null);
+import { DataContext } from "../context/DataProvider";
+function Board() {
+  const { Pick, Computer, setPick, setComputer, setScore, setWinner } =
+    useContext(DataContext);
 
   const handleClick = (i) => {
-    if (isComputer === 0) {
-      setPick(i);
-      setComputer(Math.floor(Math.random() * 3 + 1));
-    }
-    handleWinner();
+    setPick(i);
+    setComputer(Math.floor(Math.random() * 3 + 1));
   };
 
   const handleWinner = () => {
-    console.log(Pick, Computer);
     if (
       (Pick === 1 && Computer === 3) ||
       (Pick === 2 && Computer === 1) ||
       (Pick === 3 && Computer === 2)
     ) {
-      setScore({ ...Score, user: Score.user + 1 });
       setWinner("user");
-      // setComputer(null);
-      // setPick(null);
+      setScore((prev) => ({ ...prev, user: prev.user + 1 }));
+      console.log("user", Pick, Computer);
     } else if (
       (Pick === 1 && Computer === 2) ||
       (Pick === 2 && Computer === 3) ||
       (Pick === 3 && Computer === 1)
     ) {
-      setScore({ ...Score, computer: Score.computer + 1 });
       setWinner("computer");
-      // setComputer(null);
-      // setPick(null);
+      setScore((prev) => ({ ...prev, computer: prev.computer + 1 }));
+      console.log("comp", Pick, Computer);
     } else {
       setWinner("draw");
+      console.log("draw", Pick, Computer);
     }
   };
+
+  useEffect(() => {
+    if (Pick !== null && Computer !== null) {
+      handleWinner();
+    }
+  }, [Pick, Computer]);
 
   return (
     <div className="board">
