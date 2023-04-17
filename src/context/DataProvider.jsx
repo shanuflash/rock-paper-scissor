@@ -7,6 +7,8 @@ function DataProvider({ children }) {
   const [Winner, setWinner] = useState(null);
   const [Pick, setPick] = useState(null);
   const [Computer, setComputer] = useState(null);
+  const [Modal, setModal] = useState(false);
+
   // const [Round, setRound] = useState(0);
   return (
     <DataContext.Provider
@@ -19,6 +21,8 @@ function DataProvider({ children }) {
         setPick,
         Computer,
         setComputer,
+        Modal,
+        setModal,
         // Round,
         // setRound,
       }}

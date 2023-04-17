@@ -4,18 +4,19 @@ import Result from "./components/Result";
 import Nav from "./components/Nav";
 import "./App.css";
 import { DataContext } from "./context/DataProvider";
+import Rules from "./components/Rules";
 
 function App() {
-  // const handleRestart = () => {
-  //   setScore({ user: 0, computer: 0 });
-  //   setWinner(null);
-  // };
-  const { Winner } = useContext(DataContext);
+  const { Winner, Modal, setModal } = useContext(DataContext);
 
   return (
     <div className="App">
       <Nav />
+      {Modal && <Rules />}
       <div className="game-container">{Winner ? <Result /> : <Board />}</div>
+      <button className="rule-button" onClick={() => setModal((prev) => !prev)}>
+        Rules
+      </button>
     </div>
   );
 }
