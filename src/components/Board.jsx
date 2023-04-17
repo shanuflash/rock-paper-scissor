@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import {
-  FaRegHandRock,
-  FaRegHandPaper,
-  FaRegHandScissors,
-} from "react-icons/fa";
+import rock from "../assets/icon-rock.svg";
+import paper from "../assets/icon-paper.svg";
+import scissors from "../assets/icon-scissors.svg";
+import bgtriangle from "../assets/bg-triangle.svg";
 function Board({ isComputer, Score, setScore, Winner, setWinner }) {
   const [Pick, setPick] = useState(null);
   const [Computer, setComputer] = useState(null);
@@ -42,26 +41,19 @@ function Board({ isComputer, Score, setScore, Winner, setWinner }) {
   };
 
   return (
-    <div className={`board ${isComputer && "computer"}`}>
-      <div className="board-item">
-        <FaRegHandRock
-          className={`${Pick === 1 && "selected"}`}
-          onClick={() => handleClick(1)}
-        />
+    <div className="board">
+      <div className="row">
+        <div className="board-item paper">
+          <img src={paper} className="icon" onClick={() => handleClick(2)} />
+        </div>
+        <div className="board-item scissors">
+          <img src={scissors} className="icon" onClick={() => handleClick(3)} />
+        </div>
       </div>
-      <div className="board-item">
-        <FaRegHandPaper
-          className={`${Pick === 2 && "selected"}
-          ${isComputer === 1 && Computer === 2 && "selected"}
-          `}
-          onClick={() => handleClick(2)}
-        />
-      </div>
-      <div className="board-item">
-        <FaRegHandScissors
-          className={`${Pick === 3 && "selected"}`}
-          onClick={() => handleClick(3)}
-        />
+      <div className="row row2">
+        <div className="board-item rock">
+          <img src={rock} className="icon" onClick={() => handleClick(1)} />
+        </div>
       </div>
     </div>
   );

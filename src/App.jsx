@@ -44,21 +44,10 @@ function App() {
         </div> */}
       </div>
       <div className="game-container">
-        <div className="side">
-          User
-          <Board
-            isComputer={0}
-            {...{ Score, setScore, Winner, setWinner, Gameover, setGameover }}
-          />
-        </div>
-        <div className="divider"></div>
-        <div className="side">
-          Computer
-          <Board
-            isComputer={1}
-            {...{ Score, setScore, Winner, setWinner, Gameover, setGameover }}
-          />
-        </div>
+        <Board
+          isComputer={0}
+          {...{ Score, setScore, Winner, setWinner, Gameover, setGameover }}
+        />
       </div>
     </div>
   );

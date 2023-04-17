@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
 :root {
-  --scissors: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-  --paper: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-  --rock: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --scissors: hsl(40, 84%, 53%);
+  --paper: hsl(230, 89%, 65%);
+  --rock: hsl(349, 70%, 56%);
   --font-primary: hsl(229, 25%, 31%);
   --font-secondary: hsl(229, 64%, 46%);
   --font-tertiary: hsl(217, 16%, 45%);
