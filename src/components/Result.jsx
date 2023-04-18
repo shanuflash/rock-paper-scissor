@@ -15,10 +15,16 @@ function Result() {
   return (
     <div className="Result">
       <div className="user">
-        <div className="board-item paper">
+        <div
+          className={`board-item ${
+            Pick === 1 ? "rock" : Pick === 2 ? "paper" : "scissors"
+          }`}
+        >
           <img
             src={Pick === 1 ? rock : Pick === 2 ? paper : scissors}
-            className="icon"
+            className={`icon ${
+              Pick === 1 ? rock : Pick === 2 ? paper : scissors
+            }`}
             onClick={() => handleClick(2)}
           />
         </div>
@@ -32,7 +38,11 @@ function Result() {
         <button onClick={handleReplay}>Play Again</button>
       </div>
       <div className="computer">
-        <div className="board-item scissors">
+        <div
+          className={`board-item ${
+            Computer === 1 ? "rock" : Computer === 2 ? "paper" : "scissors"
+          }`}
+        >
           <img
             src={Computer === 1 ? rock : Computer === 2 ? paper : scissors}
             className="icon"
